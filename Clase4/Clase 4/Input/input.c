@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 /**
 * \brief Solicita un número al usuario y lo valida
@@ -18,9 +19,16 @@ int getInt(int* input,char message[],char eMessage[], int lowLimit, int hiLimit)
     //.........
     //.........
     //.........
-
-
-    *input = 44;
+    lowLimit = 1;
+    hiLimit = 100;
+    printf("%s",message);
+    fflush(stdin);
+    scanf("%d", input);
+    if(*input< lowLimit|| *input>hiLimit)
+    {
+        printf("%s", eMessage);
+        return -1;
+    }
     return 0;
 }
 
@@ -40,8 +48,16 @@ int getFloat(float* input,char message[],char eMessage[], float lowLimit, float 
     //.........
     //.........
     //.........
-
-    *input = 1234.88;
+    lowLimit = 0;
+    hiLimit = 10000;
+    printf("%s",message);
+    fflush(stdin);
+    scanf("%f", input);
+    if(*input<lowLimit || *input>hiLimit)
+    {
+        printf("%s", eMessage);
+        return -1;
+    }
     return 0;
 }
 
@@ -62,9 +78,21 @@ int getChar(char* input,char message[],char eMessage[], char lowLimit, char hiLi
     //.........
     //.........
     //.........
-
-    *input = 'S';
-    return 0;
+    lowLimit = 'A';
+    hiLimit = 'C';
+    printf("%s",message);
+    fflush(stdin);
+    scanf("%c", input);
+    input=toupper(input);
+    if(input == 'A' || input == 'B' || input == 'C')
+    {
+        return 0;
+    }
+    else
+    {
+        printf(eMessage);
+        return -1;
+    }
 }
 
 

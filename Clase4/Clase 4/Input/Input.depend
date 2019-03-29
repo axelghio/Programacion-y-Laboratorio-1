@@ -11,3 +11,16 @@
 
 1460746095 /home/mauro/Documentos/workspace_c/utest/Input/inc/input.h
 
+1553893264 source:c:\users\axel\documents\github\programacion y laboratorio 1\clase4\clase 4\input\main.c
+	<stdio.h>
+	<stdlib.h>
+	"inc/input.h"
+
+1460746094 c:\users\axel\documents\github\programacion y laboratorio 1\clase4\clase 4\input\inc\input.h
+
+1553894800 source:c:\users\axel\documents\github\programacion y laboratorio 1\clase4\clase 4\input\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
