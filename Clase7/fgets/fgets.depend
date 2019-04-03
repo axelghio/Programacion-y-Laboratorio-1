@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1554302556 source:y:\fgets\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1554302556 source:z:\fgets\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

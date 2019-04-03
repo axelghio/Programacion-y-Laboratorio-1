@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1554303370 source:c:\users\alumno\desktop\programacion-y-laboratorio-1\clase7\axelutn.c
+	<stdio.h>
+	<stdint.h>
+
+1554301847 source:c:\users\alumno\desktop\programacion-y-laboratorio-1\clase7\main.c
+	<stdio.h>
+	<stdlib.h>
+
