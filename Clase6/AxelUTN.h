@@ -44,5 +44,3 @@ unsigned long factorial(int numero);
  * \return int              DEVUELVE SI LA FUNCION FUNCIONO.
  */
 int getData(int min, int max, int* dato, int intentos, char* tipoDato, char* mensaje, char* eMensaje);
-
-int getInt(int* dato,)
