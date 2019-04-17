@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1555504354 source:c:\users\alumno\desktop\estructuras2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	"AxelUTN.h"
+
+1555505485 source:c:\users\alumno\desktop\estructuras2\axelutn.c
+	<stdio.h>
+	<stdint.h>
+	<string.h>
+	"AxelUTN.h"
+	<ctype.h>
+
+1555512909 c:\users\alumno\desktop\estructuras2\axelutn.h
+
