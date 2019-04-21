@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <string.h>
 #include "AxelUTN.h"
 #include <ctype.h>
@@ -258,8 +259,7 @@ int menu()
 
 void mostrarEmpleado(eEmpleado emp)
 {
-
-    printf("   %d     %10s     %c    %.2f         %d      %d      %d\n", emp.legajo, emp.nombre, emp.sexo, emp.sueldo, emp.fechaNac.dia, emp.fechaNac.mes, emp.fechaNac.anio);
+    printf("%d  %5s %c  %.2f    %d  %d  %d %d\n", emp.legajo, emp.nombre, emp.sexo, emp.sueldo, emp.fechaNac.dia, emp.fechaNac.mes, emp.fechaNac.anio, emp.idSector);
 
 }
 
@@ -267,7 +267,7 @@ void mostrarEmpleados(eEmpleado vec[], int tam)
 {
     int contador = 0;
 
-    printf(" Legajo   Nombre  Sexo  Sueldo          dia         mes         anio\n\n");
+    printf(" Legajo   Nombre  Sexo  Sueldo          dia         mes         anio    sector\n\n");
     for(int i=0; i < tam; i++)
     {
         if(vec[i].ocupado == 1)
@@ -281,6 +281,33 @@ void mostrarEmpleados(eEmpleado vec[], int tam)
     {
         printf("\nNo hay empleados que mostrar\n");
     }
+}
+
+void mostrarEmpleadoOrden(eEmpleado emp)
+{
+    printf("%d  %5s %c  %.2f    %d\n", emp.legajo, emp.nombre, emp.sexo, emp.sueldo, emp.idSector);
+
+}
+
+void mostrarEmpleadosOrdenados(eEmpleado vec[], int tam)
+{
+    int contador = 0;
+
+    printf(" Legajo   Nombre  Sexo  Sueldo  sector\n\n");
+    for(int i=0; i < tam; i++)
+    {
+        if(vec[i].ocupado == 1)
+        {
+            mostrarEmpleadoOrden(vec[i]);
+            contador++;
+        }
+    }
+
+    if( contador == 0)
+    {
+        printf("\nNo hay empleados que mostrar\n");
+    }
+
 }
 
 int buscarLibre(eEmpleado vec[], int tam)
@@ -368,11 +395,323 @@ void altaEmpleado(eEmpleado vec[], int tam)
             printf("Ingrese anio de nacimiento: ");
             scanf("%d", &vec[indice].fechaNac.anio );
 
+            listaSector();
+            printf("Ingrese Sector: ");
+            scanf("%d", &vec[indice].idSector );
+
             vec[indice].ocupado = 1;
 
-            printf("Alta empleado exitosa!!!\n\n");
+            printf("\n\nAlta empleado exitosa!!!\n\n");
 
         }
 
     }
+}
+void listaSector()
+{
+    system("cls");
+    printf("Indique en que sector va a ser dirigido este empleado.\n\n");
+    printf("1.- Sector 1\n");
+    printf("2.- Sector 2\n");
+    printf("3.- Sector 3\n\n");
+
+}
+
+void bajaEmpleado(eEmpleado vec[], int tam)
+{
+    int esta;
+    int legajo;
+    char opcion = 'n';
+
+    printf("Ingrese legajo: ");
+    scanf("%d", &legajo);
+    esta = buscarEmpleado(vec, tam, legajo);
+    if(esta!=-1)
+    {
+        printf("El empleado que desea dar de baja es: %s\n", vec[esta].nombre);
+        if(vec[esta].ocupado ==0)
+        {
+            printf("No hay nada que mostrar");
+        }
+        else
+        {
+            printf(" Legajo   Nombre  Sexo  Sueldo          dia         mes         anio    Sector\n\n");
+            mostrarEmpleado(vec[esta]);
+        }
+
+        printf("\nDesea dar de baja a %s. Ingrese 'n' o 's': ", vec[esta].nombre);
+        fflush(stdin);
+        scanf("%c", &opcion);
+        opcion = tolower(opcion);
+        if(opcion == 's')
+        {
+            vec[esta].ocupado = 0;
+        }
+        system("cls");
+        printf("Baja Exitosa.");
+    }
+}
+void modificarEmpleado(eEmpleado vec[], int tam)
+{
+    int auxLeg;
+    int esta;
+    char opcion='n';
+    char opcionSubMenu='n';
+    char auxNomb[20];
+    char auxSex;
+    float auxSueldo;
+    int auxOcupacion;
+    int auxDiaNac;
+    int auxMesNac;
+    int auxAnioNac;
+    int auxSector;
+    do
+    {
+        system("cls");
+        printf("Ingrese legajo del empleado que desea modificar: ");
+        fflush(stdin);
+        scanf("%d", &auxLeg);
+        esta = buscarEmpleado(vec, tam, auxLeg);
+        if(esta!=-1)
+        {
+            system("cls");
+            printf(" Legajo   Nombre  Sexo  Sueldo          dia         mes         anio    sector\n\n");
+            mostrarEmpleado(vec[esta]);
+            printf("Este es el empleado que desea modificar? ingrese 's' o 'n' ");
+            fflush(stdin);
+            scanf("%c", &opcion);
+            opcion=tolower(opcion);
+            if(opcion == 's')
+            {
+                do
+                {
+                    switch(menuMod())
+                    {
+                    case 1:
+                        printf("Ingrese el nombre: ");
+                        fflush(stdin);
+                        gets(auxNomb);
+                        strcpy(vec[esta].nombre, auxNomb);
+                        printf("Se ha cambiado el nombre satisfactoriamente.\n\n");
+                        system("pause");
+                        break;
+                    case 2:
+                        printf("Ingrese el Sexo: ");
+                        fflush(stdin);
+                        scanf("%c", &auxSex);
+                        vec[esta].sexo=auxSex;
+                        printf("Se ha cambiado el sexo satisfactoriamente.\n\n");
+                        system("pause");
+                        break;
+                    case 3:
+                        printf("Ingrese el Sueldo: ");
+                        fflush(stdin);
+                        scanf("%f", &auxSueldo);
+                        vec[esta].sueldo=auxSueldo;
+                        printf("Se ha cambiado el sueldo satisfactoriamente.\n\n");
+                        system("pause");
+                        break;
+                    case 4:
+                        printf("Ingrese el Ocupacion: ");
+                        fflush(stdin);
+                        scanf("%d", &auxOcupacion);
+                        vec[esta].ocupado=auxOcupacion;
+                        printf("Se ha cambiado el estado de Ocupado satisfactoriamente.\n\n");
+                        system("pause");
+                        break;
+                    case 5:
+                        printf("Ingrese el dia de nacimiento: ");
+                        fflush(stdin);
+                        scanf("%d", &auxDiaNac);
+                        vec[esta].fechaNac.dia=auxDiaNac;
+                        printf("Ingrese el mes de nacimiento: ");
+                        fflush(stdin);
+                        scanf("%d", &auxMesNac);
+                        vec[esta].fechaNac.mes=auxMesNac;
+                        printf("Ingrese el anio de nacimiento: ");
+                        fflush(stdin);
+                        scanf("%d", &auxAnioNac);
+                        vec[esta].fechaNac.anio=auxAnioNac;
+                        printf("Se ha cambiado la fecha de nacimiento satisfactoriamente.\n\n");
+                        system("pause");
+                        break;
+                    case 6:
+                        printf("Ingrese el Sector: ");
+                        fflush(stdin);
+                        scanf("%d",&auxSector);
+                        vec[esta].idSector=auxSector;
+                        printf("Se ha cambiado el sector satisfactoriamente.\n\n");
+                        system("pause");
+                        break;
+                    case 7:
+                        opcionSubMenu = 's';
+                        break;
+                    }
+                }
+                while(opcionSubMenu=='n');
+            }
+        }
+        else
+        {
+            printf("No se encontro a ningun empleado con el siguien legajo.\n\n");
+
+        }
+    }
+    while(opcion == 'n');
+
+}
+void listar(eEmpleado vec[], int tam)
+{
+    mostrarEmpleados(vec, tam);
+}
+int menuMod()
+{
+    int opcion;
+
+    system("cls");
+    printf("  *** Modificar Empleado ***\n\n");
+    printf("Seleccione la opcion que desea modificar.\n\n");
+    printf("1- Nombre\n");
+    printf("2- Sexo\n");
+    printf("3- Sueldo\n");
+    printf("4- Ocupacion\n");
+    printf("5- Fecha Nacimiento\n");
+    printf("6- Sector\n\n");
+    printf("7- Volver menu principal.\n\n");
+    printf("Ingrese opcion: ");
+    scanf("%d", &opcion);
+
+    return opcion;
+}
+int ordenarEmpleados(eEmpleado vec[], int tam)
+{
+    int auxLeg;
+    char auxNombre[20];
+    char auxSex;
+    float auxSueldo;
+    int auxSec;
+
+    eEmpleadoDos vecDos[tam];
+    for(int i = 0; i < tam; i++)
+    {
+        vecDos[i].idSector = vec[i].idSector;
+        vecDos[i].legajo = vec[i].legajo;
+        strcpy(vecDos[i].nombre, vec[i].nombre);
+        vecDos[i].ocupado = vec[i].ocupado;
+        vecDos[i].sexo = vec[i].sexo;
+        vecDos[i].sueldo = vec[i].sueldo;
+    }
+    int retorno;
+    switch(opcionOrdenar())
+    {
+    case 1:
+        for(int i = 0; i< tam -1; i++)
+        {
+            for(int j=i; j < tam ; j++)
+            {
+                if(vecDos[i].legajo>vecDos[j].legajo)
+                {
+                    auxLeg = vecDos[i].legajo;
+                    vecDos[i].legajo = vecDos[j].legajo;
+                    vecDos[j].legajo = auxLeg;
+
+                    strcpy(auxNombre, vecDos[i].nombre);
+                    strcpy(vecDos[i].nombre, vecDos[j].nombre);
+                    strcpy(vecDos[j].nombre, auxNombre);
+
+                    auxSex = vecDos[i].sexo;
+                    vecDos[i].sexo = vecDos[j].sexo;
+                    vecDos[j].sexo = auxSex;
+
+                    auxSueldo = vecDos[i].sueldo;
+                    vecDos[i].sueldo = vecDos[j].sueldo;
+                    vecDos[j].sueldo = auxSueldo;
+
+                    auxSec = vecDos[i].idSector;
+                    vecDos[i].idSector = vecDos[j].idSector;
+                    vecDos[j].idSector = auxSec;
+                }
+            }
+        }
+        mostrarEmpleadosOrdenados(vecDos,tam);
+
+        retorno = 1;
+        break;
+    case 2:
+        for(int i = 0; i< tam -1; i++)
+        {
+            for(int j=i; j < tam ; j++)
+            {
+                if(strcmp(vecDos[i].nombre,vecDos[j].nombre))
+                {
+                    strcpy(auxNombre, vecDos[i].nombre);
+                    strcpy(vecDos[i].nombre, vecDos[j].nombre);
+                    strcpy(vecDos[j].nombre, auxNombre);
+
+                    auxLeg = vecDos[i].legajo;
+                    vecDos[i].legajo = vecDos[j].legajo;
+                    vecDos[j].legajo = auxLeg;
+
+                    auxSex = vecDos[i].sexo;
+                    vecDos[i].sexo = vecDos[j].sexo;
+                    vecDos[j].sexo = auxSex;
+
+                    auxSueldo = vecDos[i].sueldo;
+                    vecDos[i].sueldo = vecDos[j].sueldo;
+                    vecDos[j].sueldo = auxSueldo;
+
+                    auxSec = vecDos[i].idSector;
+                    vecDos[i].idSector = vecDos[j].idSector;
+                    vecDos[j].idSector = auxSec;
+                }
+            }
+        }
+        mostrarEmpleadosOrdenados(vecDos,tam);
+        retorno =1;
+        break;
+    case 3:
+        for(int i = 0; i< tam -1; i++)
+        {
+            for(int j=i; j < tam ; j++)
+            {
+                if(vecDos[i].idSector >vecDos[j].idSector)
+                {
+                    auxSec = vecDos[i].idSector;
+                    vecDos[i].idSector = vecDos[j].idSector;
+                    vecDos[j].idSector = auxSec;
+
+                    auxLeg = vecDos[i].legajo;
+                    vecDos[i].legajo = vecDos[j].legajo;
+                    vecDos[j].legajo = auxLeg;
+
+                    strcpy(auxNombre, vecDos[i].nombre);
+                    strcpy(vecDos[i].nombre, vecDos[j].nombre);
+                    strcpy(vecDos[j].nombre, auxNombre);
+
+                    auxSex = vecDos[i].sexo;
+                    vecDos[i].sexo = vecDos[j].sexo;
+                    vecDos[j].sexo = auxSex;
+
+                    auxSueldo = vecDos[i].sueldo;
+                    vecDos[i].sueldo = vecDos[j].sueldo;
+                    vecDos[j].sueldo = auxSueldo;
+                }
+            }
+        }
+        mostrarEmpleadosOrdenados(vecDos,tam);
+        retorno=1;
+        break;
+    }
+    return retorno;
+}
+int opcionOrdenar()
+{
+    system("cls");
+    int opcion;
+    printf("1.-Ordenar por legajo.\n");
+    printf("2.-Ordenar por Nombre.\n");
+    printf("3.-Ordenar por Sector.\n\n");
+    printf("Opcion: ");
+    scanf("%d",&opcion);
+    return opcion;
 }

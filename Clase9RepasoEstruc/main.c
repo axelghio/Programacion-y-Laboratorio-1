@@ -19,29 +19,28 @@ int main()
         {
 
         case 1:
-            //printf("\nAlta empleado\n\n");
             altaEmpleado(lista, TAM);
             system("pause");
             break;
 
         case 2:
-            printf("\nBaja empleado\n\n");
+            bajaEmpleado(lista, TAM);
             system("pause");
             break;
 
         case 3:
-            printf("\nModificacion empleado\n\n");
+            modificarEmpleado(lista, TAM);
             system("pause");
             break;
 
         case 4:
-            printf("\nOrdenar empleados\n\n");
+            ordenarEmpleados(lista, TAM);
             system("pause");
             break;
 
         case 5:
-            //printf("\nListar empleados\n\n");
-            mostrarEmpleados(lista, TAM);
+            system("cls");
+            listar(lista, TAM);
             system("pause");
             break;
 

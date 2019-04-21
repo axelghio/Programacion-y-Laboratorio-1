@@ -15,3 +15,20 @@
 
 1555512909 c:\users\alumno\desktop\estructuras2\axelutn.h
 
+1555807849 source:c:\users\axel\documents\github\programacion-y-laboratorio-1\clase9repasoestruc\axelutn.c
+	<stdio.h>
+	<stdint.h>
+	<stdlib.h>
+	<string.h>
+	"AxelUTN.h"
+	<ctype.h>
+
+1555807811 c:\users\axel\documents\github\programacion-y-laboratorio-1\clase9repasoestruc\axelutn.h
+
+1555801283 source:c:\users\axel\documents\github\programacion-y-laboratorio-1\clase9repasoestruc\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	"AxelUTN.h"
+
