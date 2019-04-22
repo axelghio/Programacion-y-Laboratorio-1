@@ -257,9 +257,11 @@ int menu()
     return opcion;
 }
 
-void mostrarEmpleado(eEmpleado emp)
+void mostrarEmpleado(eSector sector, int tam, int id, char desc[], eEmpleado emp)
 {
-    printf("%d  %5s %c  %.2f    %d  %d  %d %d\n", emp.legajo, emp.nombre, emp.sexo, emp.sueldo, emp.fechaNac.dia, emp.fechaNac.mes, emp.fechaNac.anio, emp.idSector);
+    obtenerSector(sector, tam, id, desc[]);
+
+    printf("%d  %5s %c  %.2f    %d  %d  %d %d\n", emp.legajo, emp.nombre, emp.sexo, emp.sueldo, emp.fechaNac.dia, emp.fechaNac.mes, emp.fechaNac.anio, desc);
 
 }
 
@@ -272,7 +274,7 @@ void mostrarEmpleados(eEmpleado vec[], int tam)
     {
         if(vec[i].ocupado == 1)
         {
-            mostrarEmpleado(vec[i]);
+            //mostrarEmpleado(vec[i]);
             contador++;
         }
     }
@@ -369,7 +371,7 @@ void altaEmpleado(eEmpleado vec[], int tam)
         if( esta != -1)
         {
             printf("Existe un empleado de legajo %d en el sistema\n", legajo);
-            mostrarEmpleado(vec[esta]);
+            //mostrarEmpleado(vec[esta]);
         }
         else
         {
@@ -436,7 +438,7 @@ void bajaEmpleado(eEmpleado vec[], int tam)
         else
         {
             printf(" Legajo   Nombre  Sexo  Sueldo          dia         mes         anio    Sector\n\n");
-            mostrarEmpleado(vec[esta]);
+            //mostrarEmpleado(vec[esta]);
         }
 
         printf("\nDesea dar de baja a %s. Ingrese 'n' o 's': ", vec[esta].nombre);
@@ -476,7 +478,7 @@ void modificarEmpleado(eEmpleado vec[], int tam)
         {
             system("cls");
             printf(" Legajo   Nombre  Sexo  Sueldo          dia         mes         anio    sector\n\n");
-            mostrarEmpleado(vec[esta]);
+            //mostrarEmpleado(vec[esta]);
             printf("Este es el empleado que desea modificar? ingrese 's' o 'n' ");
             fflush(stdin);
             scanf("%c", &opcion);
@@ -582,7 +584,7 @@ int menuMod()
     scanf("%d", &opcion);
 
     return opcion;
-}
+}/*
 int ordenarEmpleados(eEmpleado vec[], int tam)
 {
     int auxLeg;
@@ -703,7 +705,7 @@ int ordenarEmpleados(eEmpleado vec[], int tam)
         break;
     }
     return retorno;
-}
+}*/
 int opcionOrdenar()
 {
     system("cls");

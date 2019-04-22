@@ -32,3 +32,26 @@
 	<conio.h>
 	"AxelUTN.h"
 
+1555939958 source:c:\users\alumno\desktop\clase9repasoestruc\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	"AxelUTN.h"
+
+1555939693 c:\users\alumno\desktop\clase9repasoestruc\axelutn.h
+	"sectores.h"
+
+1555938945 source:c:\users\alumno\desktop\clase9repasoestruc\axelutn.c
+	<stdio.h>
+	<stdint.h>
+	<stdlib.h>
+	<string.h>
+	"AxelUTN.h"
+	<ctype.h>
+
+1555939838 c:\users\alumno\desktop\clase9repasoestruc\sectores.h
+
+1555939995 source:c:\users\alumno\desktop\clase9repasoestruc\sectores.c
+	"sectores.h"
+

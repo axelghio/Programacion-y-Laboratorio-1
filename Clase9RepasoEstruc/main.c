@@ -9,8 +9,19 @@ int main()
 {
     char seguir = 's';
     char confirma;
-    eEmpleado lista[TAM];//={{1234, "Juan", 'm', 30000, 1},{2222, "Ana", 'f', 32000, 1}, {2211, "Jorge", 'm', 28000, 0}};
-    inicializarEmpleados(lista, TAM);
+    eEmpleado lista[TAM]={
+        {1234, "Juan", 'm', 30000, 1},
+        {2222, "Ana", 'f', 32000, 1},
+        {2211, "Jorge", 'm', 28000, 0}
+    };
+    eSector sectores[5]={
+        {1,"legales"},
+        {2,"RRHH"},
+        {3,"Cop"},
+        {4,"legales"},
+        {5,"legales"},
+    };
+    //inicializarEmpleados(lista, TAM);
 
 
     do
@@ -34,7 +45,7 @@ int main()
             break;
 
         case 4:
-            ordenarEmpleados(lista, TAM);
+            //ordenarEmpleados(lista, TAM);
             system("pause");
             break;
 

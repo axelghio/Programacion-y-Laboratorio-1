@@ -1,13 +1,8 @@
+#include "sectores.h"
 typedef struct
 {
     int dia, mes, anio;
-} eFecha, eFechaDos;
-
-typedef struct
-{
-    int id;
-    char desc[31];
-} eSector, eSectorDos;
+} eFecha;
 
 typedef struct
 {
@@ -19,7 +14,7 @@ typedef struct
     eFecha fechaNac;
     int idSector;
 
-} eEmpleado, eEmpleadoDos;
+} eEmpleado;
 
 /** \brief                  SUMA DOS OPERANDOS.
  * \param numeroX float     PRIMER OPERANDO.
@@ -133,7 +128,7 @@ int menu();
  * \param emp eEmpleado     RECIBE la variable emp de la estructura eEmpleado.
  * \return void
  */
-void mostrarEmpleado(eEmpleado emp);
+void mostrarEmpleado(eSector sector, int tam, int id, char desc[], eEmpleado emp);
 
 /** \brief                  IMPRIME UNA LISTA DE EMPLEADOS QUE SE HAYAN CARGADO PREVIAMENTE.
  * \param vec[] eEmpleado   RECIBE VECTOR A RECORRER CON LOS EMPLEADOS CARGADOS PREVIAMENTE.
