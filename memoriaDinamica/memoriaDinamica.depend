@@ -9,3 +9,13 @@
 
 1558367430 c:\users\alumno\desktop\memoriadinamica\memodinamic.h
 
+1558367428 source:d:\github\programacion-y-laboratorio-1\memoriadinamica\memodinamic.c
+	"memoDinamic.h"
+
+1558367430 d:\github\programacion-y-laboratorio-1\memoriadinamica\memodinamic.h
+
+1558373929 source:d:\github\programacion-y-laboratorio-1\memoriadinamica\main.c
+	<stdio.h>
+	<stdlib.h>
+	"memoDinamic.h"
+

@@ -2,6 +2,13 @@
 #include <stdlib.h>
 #include "memoDinamic.h"
 
+typedef struct{
+    int legajo;
+    char nombre[32];
+    char sexo;
+    float sueldo;
+} eEmpleado;
+
 int main()
 {
     ///CREAMOS UN PUNTERO ENTER Y LE ASIGNAMOS MEMORIA DINAMICA.
@@ -49,9 +56,13 @@ int main()
     ///NECESITAMOS UN AUX.
     int* pAux;
 
+    ///UTILIZAMOS LA FUNCION REALOC.
     pAux = (int*) realloc(pVecNum,sizeof(int) * 10);
+
+    ///VERIFICAMOS QUE NO NOS DEVUELVA NULL.
     if(pAux != NULL)
     {
+        ///SI ES DISTINTO DE NULL ASIGNAMOS EL AUXILIAR A NUESTRO PUNTERO ORIGINAL.
         pVecNum = pAux;
     }
     else
@@ -59,9 +70,10 @@ int main()
         printf("No SE PUDO CONSEGUIR MAS ESPACIO EN MEMORIA.");
     }
 
+    ///INICIALIZAMOS OTRO FOR PARA AGREGAR LOS NUMEROS RESTANTES.
     for(int i = 5; i<10; i++)
         {
-            ///UTILIZAMOS UN SCANF PARA GUARDAR ESOS NUMEROS.
+            ///UTILIZAMOS UN SCANF PARA GUARDAR ESOS NUEVOS NUMEROS.
             printf("INGRESE El NUMERO A GUARDAR EN LA POSICION %d\n",(i+1));
             scanf("%d", (pVecNum+i));
         }
@@ -71,7 +83,49 @@ int main()
         printf("NUMERO GUARDADO EN LA POSICION %d: ",(i+1));
         printf("%d\n",*(pVecNum+i));
     }
+
+    ///AHORA VAMOS A ACHICAR EL ARRAY
+
+    ///LO HACEMOS CON UN REALLOC Y COMO SABEMOS QUE YA NO NOS PUEDE DEVOLVER NULL NO LO VERIFICAMOS.
+    pVecNum = (int*) realloc(pVecNum, sizeof(int) * 5);
+
+    ///MOSTRAMOS QUE REALMENTE SE ACHICO EL ARRAY
+    for(int i = 0; i<10; i++)
+    {
+        printf("NUMERO GUARDADO EN LA POSICION %d: ",(i+1));
+        printf("%d\n",*(pVecNum+i));
+    }
+
+
+    ///AHORA VAMOS A CREAR UNA ESTRUCTURA.
+    eEmpleado* pEmp = (eEmpleado*) malloc(sizeof(eEmpleado));
+
+    if(pEmp == NULL)
+    {
+        exit(1);
+    }
+    else
+    {
+        printf("INGRESE LEGAJO: ");
+        scanf("%d", &pEmp->legajo);
+
+        printf("INGRESE NOMBRE: ");
+        fflush(stdin);
+        gets(pEmp->nombre);
+
+        printf("INGRESE SEXO: ");
+        scanf("%c",&pEmp->sexo);
+
+        printf("INGRESE SUELDO: ");
+        scanf("%f",&pEmp->sueldo);
+
+        printf("LEGAJO: %d //// NOMBRE: %s //// SEXO %c //// SUELDO %.2f ", pEmp->legajo, pEmp->nombre, pEmp->sexo, pEmp->sueldo);
+    }
+
     ///BORRAMOS LOS DATOS PARA LIBERAR MEMORIA.
+    free(pNum);
+    free(pAux);
     free(pVecNum);
+
     return 0;
 }
