@@ -1,0 +1,80 @@
+g
+alumno@LAB614 MINGW64 /d/github
+$ git clone https://github.com/axelghio/Programacion-y-Laboratorio-1.git
+Cloning into 'Programacion-y-Laboratorio-1'...
+remote: Enumerating objects: 53, done.
+remote: Counting objects: 100% (53/53), done.
+remote: Compressing objects: 100% (38/38), done.
+remote: Total 461 (delta 14), reused 0 (delta 0), pack-reused 408
+Receiving objects: 100% (461/461), 643.04 KiB | 727.00 KiB/s, done.
+Resolving deltas: 100% (195/195), done.
+
+alumno@LAB614 MINGW64 /d/github
+$ git add .
+fatal: Not a git repository (or any of the parent directories): .git
+
+alumno@LAB614 MINGW64 /d/github
+$ cd Programacion-y-Laboratorio-1
+
+alumno@LAB614 MINGW64 /d/github/Programacion-y-Laboratorio-1 (master)
+$ git add .
+warning: LF will be replaced by CRLF in memoriaDinamica/memoriaDinamica.cbp.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in memoriaDinamica/memoriaDinamica.layout.
+The file will have its original line endings in your working directory.
+
+alumno@LAB614 MINGW64 /d/github/Programacion-y-Laboratorio-1 (master)
+$ git commit -m "MEMORIA DINAMICA"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'alumno@LAB614.(none)')
+
+alumno@LAB614 MINGW64 /d/github/Programacion-y-Laboratorio-1 (master)
+$ git config --global user.email "axelghio@live.com"
+
+alumno@LAB614 MINGW64 /d/github/Programacion-y-Laboratorio-1 (master)
+$ git config --global user.name "axelghio"
+
+alumno@LAB614 MINGW64 /d/github/Programacion-y-Laboratorio-1 (master)
+$ git commit -m "MEMORIA DINAMICA"
+[master acc9ec0] MEMORIA DINAMICA
+ 9 files changed, 163 insertions(+)
+ create mode 100644 memoriaDinamica/bin/Debug/memoriaDinamica.exe
+ create mode 100644 memoriaDinamica/main.c
+ create mode 100644 memoriaDinamica/memoDinamic.c
+ create mode 100644 memoriaDinamica/memoDinamic.h
+ create mode 100644 memoriaDinamica/memoriaDinamica.cbp
+ create mode 100644 memoriaDinamica/memoriaDinamica.depend
+ create mode 100644 memoriaDinamica/memoriaDinamica.layout
+ create mode 100644 memoriaDinamica/obj/Debug/main.o
+ create mode 100644 memoriaDinamica/obj/Debug/memoDinamic.o
+
+alumno@LAB614 MINGW64 /d/github/Programacion-y-Laboratorio-1 (master)
+$ git push
+Username for 'https://github.com': axelghio@live.com
+Counting objects: 16, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (16/16), 30.67 KiB | 0 bytes/s, done.
+Total 16 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/axelghio/Programacion-y-Laboratorio-1.git
+   da850fe..acc9ec0  master -> master
+
+alumno@LAB614 MINGW64 /d/github/Programacion-y-Laboratorio-1 (master)
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working tree clean
+
+alumno@LAB614 MINGW64 /d/github/Programacion-y-Laboratorio-1 (master)
+$
