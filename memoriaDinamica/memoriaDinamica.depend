@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1558368470 source:c:\users\alumno\desktop\memoriadinamica\main.c
+	<stdio.h>
+	<stdlib.h>
+	"memoDinamic.h"
+
+1558367428 source:c:\users\alumno\desktop\memoriadinamica\memodinamic.c
+	"memoDinamic.h"
+
+1558367430 c:\users\alumno\desktop\memoriadinamica\memodinamic.h
+
