@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1558923456 source:c:\users\axel\desktop\abm\estructura.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estructura.h"
+	"UTNValidaciones.h"
+	"menus.h"
+	"archivos.h"
+
+1558919981 c:\users\axel\desktop\abm\estructura.h
+
+1558898588 c:\users\axel\desktop\abm\utnvalidaciones.h
+
+1558898476 c:\users\axel\desktop\abm\menus.h
+
+1558902736 source:c:\users\axel\desktop\abm\utnvalidaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estructura.h"
+	"UTNValidaciones.h"
+	"menus.h"
+	"archivos.h"
+
+1558906077 source:c:\users\axel\desktop\abm\menus.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estructura.h"
+	"UTNValidaciones.h"
+	"menus.h"
+	"archivos.h"
+
+1558923274 source:c:\users\axel\desktop\abm\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estructura.h"
+	"UTNValidaciones.h"
+	"menus.h"
+
+1558921083 c:\users\axel\desktop\abm\archivos.h
+
+1558923311 source:c:\users\axel\desktop\abm\archivos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estructura.h"
+	"UTNValidaciones.h"
+	"menus.h"
+	"archivos.h"
+
