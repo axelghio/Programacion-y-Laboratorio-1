@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "LinkedList.h"
 #include "Employee.h"
-
+///SE ENCARGA DE IR DICIENDO LO QUE HAY QUE HACER..
 
 /** \brief Carga los datos de los empleados desde el archivo data.csv (modo texto).
  *
